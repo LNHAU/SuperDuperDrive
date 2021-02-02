@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <link rel="stylesheet" type="text/css" media="all" th:href="@{/css/bootstrap.min.css}">
+
+        <title>Result</title>
+    </head>
+    <body class="p-3 mb-2 bg-light text-black">
+        <div id="page-load-marker" class="container justify-content-center w-50 p-3" style="margin-top: 5em;">
+            <div id="successDiv" th:if="${result == 'success'}" class="alert alert-success fill-parent">
+                <h1 class="display-5">Success</h1>
+                <span id="success-msg" th:text="${successMessage}">Your changes were successfully saved.</span>
+                <span>Click <a href="/home" id="successResultLink">here</a> to continue.</span>
+            </div>
+            <div id="notSavedDiv" th:if="${result == 'notSaved'}" class="alert alert-danger fill-parent">
+                <h1 class="display-5">Error</h1>
+                <span id="notSaved-msg" th:text="${notSavedMessage}">Your changes were not saved.</span>
+                <span>Click <a href="/home" id="notSavedResultLink">here</a> to continue.</span>
+            </div>
+            <div id="errorDiv" th:if="${result == 'error'}" class="alert alert-danger fill-parent">
+                <h1 class="display-5">Error</h1>
+                <span id="error-msg" th:text="${errorMessage}">Example Error Message</span>
+                <span>Click <a href="/home" id="failureResultLink">here</a> to continue.</span>
+            </div>
+        </div>
+    </body>
+</html>
