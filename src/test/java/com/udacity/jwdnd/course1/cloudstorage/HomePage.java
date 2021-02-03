@@ -417,9 +417,9 @@ public class HomePage {
                 final WebElement password = driver.findElement(By.xpath(".//*[@id='credentialTable']/tbody/tr[" + rowNumber + "]/td[3]"));
                 //System.out.println("Found password = " + password.getText());
                 final StringBuilder sbDisplayedCredential = new StringBuilder("Credential (").append(id).append(") has got Url \"");
-                sbDisplayedCredential.append(url).append("\"");
-                sbDisplayedCredential.append("\n and Username \"").append(username).append("\"");
-                sbDisplayedCredential.append("\n and Password \"").append(password).append("\".");
+                sbDisplayedCredential.append(url.getText()).append("\"");
+                sbDisplayedCredential.append("\n and Username \"").append(username.getText()).append("\"");
+                sbDisplayedCredential.append("\n and Password \"").append(password.getText()).append("\".");
                 displayedCredential = sbDisplayedCredential.toString();
             }
         }
