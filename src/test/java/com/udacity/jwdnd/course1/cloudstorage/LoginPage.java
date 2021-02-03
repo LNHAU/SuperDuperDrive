@@ -8,6 +8,9 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class LoginPage {
+    @FindBy(id = "signup-success-msg")
+    private WebElement signupSuccessMsg;
+    
     @FindBy(id = "error-msg")
     private WebElement errorMsg;
 
@@ -50,6 +53,14 @@ public class LoginPage {
             return true;
         } catch (org.openqa.selenium.NoSuchElementException e) {
             throw new org.openqa.selenium.NoSuchElementException("None error message when logs In.");
+        }
+    }
+
+    public String getSignupSuccessMsg() {
+        try {
+            return signupSuccessMsg.getText();
+        } catch (org.openqa.selenium.NoSuchElementException e) {
+            return null;
         }
     }
 
