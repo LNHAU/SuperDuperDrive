@@ -239,7 +239,7 @@ public class HomeController {
     }
 
     @PostMapping("/edit-credential")
-    public String editCredential(CredentialForm newCredential, CredentialService credentialService, Model model, WebRequest request) {
+    public String editCredential(CredentialForm newCredential, Model model, WebRequest request) {
         if (newCredential == null || newCredential.getUrl() == null || newCredential.getUsername() == null
                 || newCredential.getPassword() == null) {
             model.addAttribute("result", "error");
