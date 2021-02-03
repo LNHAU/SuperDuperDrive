@@ -89,14 +89,14 @@ class CloudStorageApplicationTests {
 		SignUpPage signUpPage = new SignUpPage(driver);
 		WebDriverWait wait = new WebDriverWait(driver, 500);
 		signUpPage.submitSignUp(firstName, lastName, username, password);
-		Assertions.assertEquals("You successfully signed up! Please continue to the login page.",
-			signUpPage.getSuccessMsg());
-		//wait = new WebDriverWait(driver, 500);
-		driver.get(signUpPage.getLogInLink());
+		Assertions.assertEquals("Login", driver.getTitle());
 		LoginPage loginPage = new LoginPage(driver);
+		//wait = new WebDriverWait(driver, 500);
+		Assertions.assertEquals("You successfully signed up!", loginPage.getSignupSuccessMsg());
 		loginPage.submitLogin(username, password);
 		Assertions.assertThrows(org.openqa.selenium.NoSuchElementException.class, loginPage::isNotSuccessfulLogin,
 			"None error message when logs In.");
+		contextLoads();
 		Assertions.assertEquals("Home", driver.getTitle());
 		HomePage homePage = new HomePage(driver);
 		//wait = new WebDriverWait(driver, 500);
